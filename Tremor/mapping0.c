@@ -127,6 +127,7 @@ int mapping_inverse(vorbis_dsp_state *vd,vorbis_info_mapping *info){
       submap=info->chmuxlist[i];
     floorno=info->submaplist[submap].floor;
     
+//    ci->floor_type[floorno]=1;
     if(ci->floor_type[floorno]){
       /* floor 1 */
       floormemo[i]=alloca(sizeof(*floormemo[i])*

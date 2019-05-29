@@ -47,7 +47,11 @@ int main(){
       fprintf(stderr,"Input does not appear to be an Ogg bitstream.\n");
       exit(1);
   }
+ fprintf(stderr,"File Opened ssss.\n");
+ int ps = ov_pcm_seek(&vf,1);
+ int ts = ov_time_seek(&vf,1);
 
+ fprintf(stderr,"Time Seek: %i \n",ts);
   /* Throw the comments plus a few lines about the bitstream we're
      decoding */
   {
@@ -62,7 +66,9 @@ int main(){
 	    (long)ov_pcm_total(&vf,-1));
     fprintf(stderr,"Encoded by: %s\n\n",ov_comment(&vf,-1)->vendor);
   }
-  
+  vf.ready_state = 2;
+  ov_pcm_seek_page(&vf,1);
+  ov_time_seek(&vf,1000); 
   while(!eof){
     long ret=ov_read(&vf,pcmout,sizeof(pcmout),&current_section);
     if (ret == 0) {
