@@ -5,7 +5,7 @@ mv people.xiph.org/*.ogg decode_corpus/
 zip -r "$OUT/decode_fuzzer_seed_corpus.zip" decode_corpus/
 popd
 
-pushd $SRC/tremor/Tremor
+pushd $SRC/Tremor
 ./autogen.sh
 ./configure --prefix="$WORK" --enable-static --disable-shared --disable-crc
 make clean
