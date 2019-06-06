@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <cstdint>
-#include <vorbis/vorbisfile.h>
+#include <tremor/ivorbisfile.h>
 
 struct vorbis_data {
   const uint8_t *current;
